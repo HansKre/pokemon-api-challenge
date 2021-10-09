@@ -6,7 +6,7 @@ type Props = {
   delay?: number;
 };
 
-export default function WithBouncingAnimation({ children, delay }: Props) {
+export default function WithSlideUpAnimation({ children, delay }: Props) {
   return (
     <motion.div
       initial={{ opacity: 0, y: 40 }}
