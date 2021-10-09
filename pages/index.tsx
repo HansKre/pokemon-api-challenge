@@ -1,6 +1,6 @@
 import { useState, useEffect, useCallback } from 'react';
 import { APIResponsePokemonsI } from '../types';
-import { LIMIT } from '../constants';
+import { LIMIT, POKEMONS_API } from '../constants';
 import { ComponentProps } from './_app';
 import PokemonCard from '../components/pokemon-card/PokemonCard';
 import styled from 'styled-components';
@@ -36,15 +36,9 @@ const Grid = styled.section`
   align-items: center;
   justify-content: center;
   flex-wrap: wrap;
-  /* flex: auto; */
   max-width: 800px;
   margin-top: 3rem;
   max-height: 80vh;
-  /* @media (max-width: 600px) {
-    width: 100%;
-    flex-direction: column;
-    background-color: limegreen;
-  } */
 `;
 
 const override = css`
@@ -69,7 +63,7 @@ export default function Home({
     setIsLoading(true);
     setIsError(false);
     const { results, count }: APIResponsePokemonsI = await fetch(
-      `/api/pokemons?page=${page}`
+      `${POKEMONS_API}${page}`
     )
       .then((res) => res.json())
       .catch((reason) => {
@@ -84,9 +78,7 @@ export default function Home({
   useEffect(() => {
     if (firstRender && pokemons) {
       // do not fetch
-      console.log('not fetching');
     } else {
-      console.log('fetching', { firstRender, pokemons });
       doFetch();
     }
     setFirstRender(false);
@@ -97,8 +89,6 @@ export default function Home({
     const newPage = e.currentTarget.value as any as number;
     setPage(newPage);
   }
-
-  // console.log({ page, firstRender, maxPages });
 
   return (
     <Column>
@@ -134,11 +124,5 @@ export default function Home({
       )}
       {pokemons && pokemons.length === 0 && <p>No Pokemons.</p>}
     </Column>
-    // <Column>
-    //   {pokemons &&
-    //     pokemons.map((pokemon) => {
-    //       return <PokemonCard key={pokemon.name} pokemon={pokemon} />;
-    //     })}
-    // </Column>
   );
 }
