@@ -11,7 +11,7 @@ const onHoverFocusActive = css`
 
 const Title = styled.h2`
   margin: 0 0 1rem 0;
-  font-size: 1.5rem;
+  font-size: ${(props) => props.theme.typography.h2};
   color: ${(props) => props.theme.secondaryColor};
 `;
 
@@ -48,7 +48,7 @@ const Card = styled.a`
 
 const Description = styled.p`
   margin: 0;
-  font-size: 1.25rem;
+  font-size: ${(props) => props.theme.typography.p};
   line-height: 1.5;
   font-weight: 100;
 `;

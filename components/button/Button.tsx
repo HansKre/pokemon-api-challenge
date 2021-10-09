@@ -17,7 +17,7 @@ export const Button = styled.div`
   ${(props) =>
     props.theme &&
     css`
-      font-size: ${props.theme.typography.h1};
+      font-size: ${props.theme.typography.h2};
       color: ${props.theme.primaryColor};
     `}
 

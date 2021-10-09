@@ -2,9 +2,9 @@ import { keyframes } from 'styled-components';
 
 const mainTheme = {
   typography: {
-    h1: '28px',
-    h2: '21px',
-    icon: '3rem',
+    h1: '4rem',
+    h2: '1.5rem',
+    p: '1.25rem',
   },
   primaryColor: '#db9137',
   secondaryColor: 'grey',

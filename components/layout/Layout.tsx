@@ -23,7 +23,7 @@ const LayoutContainer = styled.div<{ innerHeight: number }>`
 const Title = styled.h1`
   margin: 0;
   line-height: 1.15;
-  font-size: 4rem;
+  font-size: ${(props) => props.theme.typography.h1};
   color: ${(props) => props.theme.primaryColor};
   text-align: center;
 `;
