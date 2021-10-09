@@ -1,6 +1,7 @@
 /* eslint-disable @next/next/no-img-element */
 import Link from 'next/link';
-import styled, { css, keyframes } from 'styled-components';
+import styled, { css } from 'styled-components';
+import { bounceIn, bounceInReduced } from '../../styles/mainTheme';
 import { PokemonI } from '../../types';
 
 const onHoverFocusActive = css`
@@ -12,34 +13,6 @@ const Title = styled.h2`
   margin: 0 0 1rem 0;
   font-size: 1.5rem;
   color: ${(props) => props.theme.secondaryColor};
-`;
-
-const bounceIn = keyframes` 
-  0 {
-    transform: scale(0);
-  }
-
-  80% {
-    transform: scale(1.3);
-  }
-
-  100% {
-    transform: scale(1);
-  }
-`;
-
-const bounceInReduced = keyframes` 
-  0 {
-    transform: scale(0);
-  }
-
-  80% {
-    transform: scale(1.1);
-  }
-
-  100% {
-    transform: scale(1);
-  }
 `;
 
 const Card = styled.a`
