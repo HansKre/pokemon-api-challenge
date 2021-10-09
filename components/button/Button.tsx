@@ -1,4 +1,5 @@
 import styled, { css } from 'styled-components';
+import { bounceInReduced } from '../../styles/mainTheme';
 
 export const Button = styled.div`
   font-weight: bold;
@@ -11,16 +12,19 @@ export const Button = styled.div`
   padding: 0.2rem;
   text-align: center;
   cursor: pointer;
-  transition: all 0.3s ease-in-out;
+  transition: all 0.15s ease-in-out;
 
   ${(props) =>
     props.theme &&
     css`
       font-size: ${props.theme.typography.h1};
-      color: ${props.theme.warningColor};
+      color: ${props.theme.primaryColor};
     `}
 
-  &:hover {
+  &:hover,
+  &:focus,
+  &:active {
     background-color: rgba(0, 0, 0, 0.03);
+    animation: ${bounceInReduced} 0.15s;
   }
 `;
