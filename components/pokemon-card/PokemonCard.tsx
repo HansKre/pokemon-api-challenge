@@ -3,7 +3,7 @@ import { PokemonI } from '../../types';
 import Card from './Card';
 import Title from './Title';
 import Description from './Description';
-import { MouseEventHandler } from 'react';
+import { MouseEventHandler, useState } from 'react';
 import { useRouter } from 'next/router';
 
 interface Props {
@@ -13,20 +13,23 @@ interface Props {
 
 export default function PokemonCard({ pokemon, onClick }: Props) {
   const router = useRouter();
+  const [animate, setAnimate] = useState(false);
 
   function handleClick(event: any) {
+    setAnimate(true);
     let timeout = 0;
     if (onClick) {
       onClick(event);
       timeout = 600;
     }
     setTimeout(() => {
+      setAnimate(false);
       router.push(`/pokemon/${pokemon.name}`);
     }, timeout);
   }
 
   return (
-    <Card onClick={handleClick}>
+    <Card scale={animate} onClick={handleClick}>
       <Title>{pokemon.name} &rarr;</Title>
       <img src={pokemon.img} alt={pokemon.name} width={100} height={100} />
       <Description>species: {pokemon.species}</Description>
