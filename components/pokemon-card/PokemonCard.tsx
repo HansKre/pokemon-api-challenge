@@ -56,6 +56,9 @@ const Card = styled.a`
   border-radius: 10px;
   transition: color 0.15s ease, border-color 0.15s ease;
   width: 45%;
+  @media (max-width: 600px) {
+    width: 90%;
+  }
   &:hover,
   &:focus,
   &:active {
