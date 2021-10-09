@@ -8,15 +8,7 @@ import { css } from '@emotion/react';
 import PacmanLoader from 'react-spinners/PacmanLoader';
 import mainTheme from '../styles/mainTheme';
 import WithSlideUpAnimation from '../components/animations/WithSlideUpAnimation';
-
-const Column = styled.div`
-  display: flex;
-  flex-direction: column;
-  width: 100%;
-  height: 100%;
-  justify-content: center;
-  align-items: center;
-`;
+import { Column } from '../components/column/Column';
 
 const Pagination = styled.div`
   margin: 50px auto 0 auto;
@@ -43,7 +35,6 @@ const Grid = styled.section`
 
 const override = css`
   display: block;
-  /* margin: 0 auto; */
   margin: 2;
 `;
 
@@ -114,6 +105,7 @@ export default function Home({
         />
       )}
       {!isLoading && pokemons && pokemons.length > 0 && (
+        // TODO: do not animate on navigate but only on new data
         <WithSlideUpAnimation>
           <Grid>
             {pokemons.map((pokemon) => {
