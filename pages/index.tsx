@@ -4,11 +4,9 @@ import { LIMIT, POKEMONS_API } from '../constants';
 import { ComponentProps } from './_app';
 import PokemonCard from '../components/pokemon-card/PokemonCard';
 import styled from 'styled-components';
-import { css } from '@emotion/react';
-import PacmanLoader from 'react-spinners/PacmanLoader';
-import mainTheme from '../styles/mainTheme';
 import WithSlideUpAnimation from '../components/animations/WithSlideUpAnimation';
 import Column from '../components/column/Column';
+import Loader from '../components/loader/Loader';
 
 const Pagination = styled.div`
   margin: 50px auto 0 auto;
@@ -31,11 +29,6 @@ const Grid = styled.section`
   max-width: 800px;
   margin-top: 3rem;
   max-height: 80vh;
-`;
-
-const override = css`
-  display: block;
-  margin: 2;
 `;
 
 export default function Home({
@@ -98,14 +91,7 @@ export default function Home({
         </Pagination>
       )}
       {isError && <p>API Request failed</p>}
-      {isLoading && (
-        <PacmanLoader
-          loading={isLoading}
-          color={mainTheme.primaryColor}
-          css={override}
-          size={25}
-        />
-      )}
+      {isLoading && <Loader />}
       {!isLoading && pokemons && pokemons.length > 0 && (
         // TODO: do not animate on navigate but only on new data
         <WithSlideUpAnimation>
