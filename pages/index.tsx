@@ -8,7 +8,7 @@ import { css } from '@emotion/react';
 import PacmanLoader from 'react-spinners/PacmanLoader';
 import mainTheme from '../styles/mainTheme';
 import WithSlideUpAnimation from '../components/animations/WithSlideUpAnimation';
-import { Column } from '../components/column/Column';
+import Column from '../components/column/Column';
 
 const Pagination = styled.div`
   margin: 50px auto 0 auto;
