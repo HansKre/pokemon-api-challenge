@@ -5,7 +5,6 @@ import Description from './Description';
 import Column from '../column/Column';
 
 export default function PokemonDetails({ pokemon }: { pokemon: PokemonI }) {
-  console.log(pokemon);
   return (
     <Column margin='60px'>
       <Title>{pokemon.name}</Title>
