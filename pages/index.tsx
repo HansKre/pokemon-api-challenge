@@ -61,8 +61,10 @@ export default function Home({
         console.log(reason);
         setIsError(true);
       });
-    setPokemons(results);
-    setMaxPages(Math.ceil(count / LIMIT));
+    if (results) {
+      setPokemons(results);
+      setMaxPages(Math.ceil(count / LIMIT));
+    }
     setIsLoading(false);
   }, [page, setMaxPages, setPokemons]);
 

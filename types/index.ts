@@ -36,6 +36,6 @@ export interface Type {
 }
 
 export interface APIResponsePokemonsI {
-  results: PokemonI[];
+  results: PokemonI[] | [];
   count: number;
 }
