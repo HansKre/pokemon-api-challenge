@@ -3,6 +3,6 @@ import mainTheme from '../../styles/mainTheme';
 
 export default function Loader() {
   return (
-    <PacmanLoader loading={true} color={mainTheme.primaryColor} size={25} />
+    <PacmanLoader loading={true} color={mainTheme.secondaryColor} size={25} />
   );
 }

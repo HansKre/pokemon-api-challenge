@@ -4,7 +4,7 @@ import { PokemonI } from '../../types';
 import { useEffect, useState } from 'react';
 import { POKEMON_API } from '../../constants';
 import Column from '../../components/column/Column';
-import WithFadeInAnimation from '../../components/animations/WithFadeInAnimation';
+import WithSlideInAnimation from '../../components/animations/WithSlideInAnimation';
 import { Button } from '../../components/button/Button';
 import PokemonDetails from '../../components/pokemon-card/PokemonDetails';
 import Loader from '../../components/loader/Loader';
@@ -43,7 +43,7 @@ export default function Pokemon({ pokemons }: ComponentProps) {
   }, [name, pokemons]);
 
   return (
-    <WithFadeInAnimation>
+    <WithSlideInAnimation>
       <Column margin='0 20vw 0 20vw'>
         <Button onClick={() => router.push('/')}>
           &larr; Back to all Pokemons
@@ -53,6 +53,6 @@ export default function Pokemon({ pokemons }: ComponentProps) {
         {!pokemon && !isLoading && <p>Not a Pokemin -.-</p>}
         {isLoading && <Loader />}
       </Column>
-    </WithFadeInAnimation>
+    </WithSlideInAnimation>
   );
 }
