@@ -1,0 +1,33 @@
+{
+  "name": "pokemon-api-challenge",
+  "version": "0.1.0",
+  "private": true,
+  "scripts": {
+    "dev": "next dev",
+    "build": "next build",
+    "start": "next start",
+    "lint": "next lint"
+  },
+  "dependencies": {
+    "@types/pokedex-promise-v2": "github:mudkipme/pokeapi-v2-typescript",
+    "framer-motion": "^4.1.17",
+    "next": "11.1.2",
+    "pokedex-promise-v2": "^3.3.2",
+    "react": "17.0.2",
+    "react-dom": "17.0.2",
+    "react-spinners": "^0.11.0",
+    "styled-components": "^5.3.1",
+    "webdev-essentials": "^1.0.0"
+  },
+  "devDependencies": {
+    "@types/react": "17.0.21",
+    "@types/styled-components": "^5.1.14",
+    "eslint": "7.32.0",
+    "eslint-config-next": "11.1.2",
+    "typescript": "4.4.3"
+  },
+  "repository": {
+    "url": "git@github.com:HansKre/pokemon-api-challenge.git"
+  },
+  "license": "ISC"
+}
