@@ -1,7 +1,6 @@
 import styled, { css } from 'styled-components';
-import { Role, setRoleColor } from '../../styles/mainTheme';
 
-export const Button = styled.div<{ role: keyof typeof Role }>`
+export const Button = styled.div`
   font-weight: bold;
   width: 100%;
   border-radius: 5px;
@@ -20,8 +19,6 @@ export const Button = styled.div<{ role: keyof typeof Role }>`
       font-size: ${props.theme.typography.h1};
       color: ${props.theme.warningColor};
     `}
-
-  ${(props) => setRoleColor}
 
   &:hover {
     background-color: rgba(0, 0, 0, 0.03);
