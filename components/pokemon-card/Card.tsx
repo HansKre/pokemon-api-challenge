@@ -19,7 +19,7 @@ const Card = styled.a`
   text-decoration: none;
   border: 1px solid #eaeaea;
   border-radius: 10px;
-  transition: color 0.15s ease, border-color 0.15s ease;
+  transition: color 0.15s ease, border-color 0.15s ease, scale 0.15s ease-in;
   cursor: pointer;
   width: 45%;
   @media (max-width: 700px) {
@@ -33,6 +33,7 @@ const Card = styled.a`
       ${onHoverFocusActive}
     }
     animation: ${bounceInReduced} 0.15s;
+    transform: scale(1.05);
     img {
       animation: ${bounceIn} 0.15s;
     }

@@ -26,5 +26,6 @@ export const Button = styled.div`
   &:active {
     background-color: rgba(0, 0, 0, 0.03);
     animation: ${bounceInReduced} 0.15s;
+    transform: scale(1.05);
   }
 `;

@@ -11,8 +11,8 @@ const mainTheme = {
 };
 
 export const bounceIn = keyframes` 
-  0 {
-    transform: scale(0);
+  0% {
+    transform: scale(1);
   }
 
   80% {
@@ -20,13 +20,13 @@ export const bounceIn = keyframes`
   }
 
   100% {
-    transform: scale(1);
+    transform: scale(1.3);
   }
 `;
 
 export const bounceInReduced = keyframes` 
-  0 {
-    transform: scale(0);
+  0% {
+    transform: scale(1);
   }
 
   80% {
@@ -34,7 +34,7 @@ export const bounceInReduced = keyframes`
   }
 
   100% {
-    transform: scale(1);
+    transform: scale(1.05);
   }
 `;
 
