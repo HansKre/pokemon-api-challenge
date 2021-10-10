@@ -1,7 +1,7 @@
 import { ReactNode } from 'react';
 import styled, { ThemeProvider } from 'styled-components';
 import Head from 'next/head';
-import WithFadeInAnimation from '../animations/WithFadeInAnimation';
+import WithFadeIn from '../animations/WithFadeIn';
 import useWindowResize from 'webdev-essentials/dist/hooks/useWindowResize';
 import mainTheme from '../../styles/mainTheme';
 
@@ -39,7 +39,7 @@ export default function Layout({ children }: { children: ReactNode }) {
   const { height: innerHeight } = useWindowResize();
   return (
     <ThemeProvider theme={mainTheme}>
-      <WithFadeInAnimation>
+      <WithFadeIn>
         <LayoutContainer innerHeight={innerHeight}>
           <Head>
             <title>Pokemon API Challenge</title>
@@ -55,7 +55,7 @@ export default function Layout({ children }: { children: ReactNode }) {
           <Title>Pokemon API Challenge</Title>
           <Main>{children}</Main>
         </LayoutContainer>
-      </WithFadeInAnimation>
+      </WithFadeIn>
     </ThemeProvider>
   );
 }

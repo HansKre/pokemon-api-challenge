@@ -12,11 +12,7 @@ const CenteredMotionDiv = styled(motion.div)`
   display: flex;
 `;
 
-export default function WithSlideInAnimation({
-  children,
-  delay,
-  fromLeft,
-}: Props) {
+export default function WithSlideIn({ children, delay, fromLeft }: Props) {
   return (
     <CenteredMotionDiv
       initial={{ opacity: 0, x: `${fromLeft ? '-800px' : '800px'}` }}

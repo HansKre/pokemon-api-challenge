@@ -11,7 +11,7 @@ const MotionDiv = styled(motion.div)`
   flex: auto;
 `;
 
-export default function WithFadeInAnimation({ children }: Props) {
+export default function WithFadeIn({ children }: Props) {
   return (
     <MotionDiv
       initial={{ opacity: 0 }}

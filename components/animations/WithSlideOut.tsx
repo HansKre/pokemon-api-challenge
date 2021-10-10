@@ -24,11 +24,7 @@ const variants = (width: number): Variants => {
   };
 };
 
-export default function WithSlideOutAnimation({
-  children,
-  delay,
-  slideOut,
-}: Props) {
+export default function WithSlideOut({ children, delay, slideOut }: Props) {
   const { width } = useWindowSize();
   return (
     <CenteredMotionDiv

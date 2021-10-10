@@ -7,7 +7,7 @@ import { Column } from 'components';
 import { Button } from 'components';
 import { PokemonDetails } from 'components';
 import { Loader } from 'components';
-import WithSlideInAnimation from '@animations/WithSlideInAnimation';
+import WithSlideIn from '@componentsanimations/WithSlideIn';
 
 export default function Pokemon({ pokemons }: ComponentProps) {
   const router = useRouter();
@@ -43,7 +43,7 @@ export default function Pokemon({ pokemons }: ComponentProps) {
   }, [name, pokemons]);
 
   return (
-    <WithSlideInAnimation>
+    <WithSlideIn>
       <Column margin='0 20vw 0 20vw'>
         <Button onClick={() => router.push('/')}>
           &larr; Back to all Pokemons
@@ -53,6 +53,6 @@ export default function Pokemon({ pokemons }: ComponentProps) {
         {!pokemon && !isLoading && <p>Not a Pokemin -.-</p>}
         {isLoading && <Loader />}
       </Column>
-    </WithSlideInAnimation>
+    </WithSlideIn>
   );
 }

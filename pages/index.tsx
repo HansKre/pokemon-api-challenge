@@ -6,9 +6,9 @@ import { ComponentProps } from '@pages/_app';
 import { PokemonCard } from 'components';
 import { Column } from 'components';
 import { Loader } from 'components';
-import WithSlideOutAnimation from '@animations/WithSlideOutAnimation';
-import WithSlideInAnimation from '@animations/WithSlideInAnimation';
-import WithFadeInAnimation from '@animations/WithFadeInAnimation';
+import WithSlideOut from '@animations/WithSlideOut';
+import WithSlideIn from '@animations/WithSlideIn';
+import WithFadeIn from '@animations/WithFadeIn';
 
 const Pagination = styled.div`
   margin: 50px auto 0 auto;
@@ -86,8 +86,8 @@ export default function Home({
 
   return (
     <Column>
-      <WithSlideInAnimation fromLeft>
-        <WithSlideOutAnimation slideOut={animateOut}>
+      <WithSlideIn fromLeft>
+        <WithSlideOut slideOut={animateOut}>
           {!isLoading && (
             <Pagination>
               <Label>Go to page:</Label>
@@ -103,7 +103,7 @@ export default function Home({
           {isError && <p>API Request failed</p>}
           {isLoading && <Loader />}
           {!isLoading && pokemons && pokemons.length > 0 && (
-            <WithFadeInAnimation>
+            <WithFadeIn>
               <Grid>
                 {pokemons.map((pokemon) => {
                   return (
@@ -115,11 +115,11 @@ export default function Home({
                   );
                 })}
               </Grid>
-            </WithFadeInAnimation>
+            </WithFadeIn>
           )}
           {pokemons && pokemons.length === 0 && <p>No Pokemons.</p>}
-        </WithSlideOutAnimation>
-      </WithSlideInAnimation>
+        </WithSlideOut>
+      </WithSlideIn>
     </Column>
   );
 }
