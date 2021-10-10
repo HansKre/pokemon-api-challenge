@@ -7,11 +7,12 @@ type Props = {
   children: ReactNode;
   delay?: number;
   slideOut: boolean;
+  rowDirection?: boolean;
 };
 
-const CenteredMotionDiv = styled(motion.div)`
+const CenteredMotionDiv = styled(motion.div)<{ rowDirection: boolean }>`
   display: flex;
-  flex-direction: column;
+  flex-direction: ${({ rowDirection }) => (rowDirection ? 'row' : 'column')};
 `;
 
 const variants = (width: number): Variants => {
@@ -24,7 +25,12 @@ const variants = (width: number): Variants => {
   };
 };
 
-export default function WithSlideOut({ children, delay, slideOut }: Props) {
+export default function WithSlideOut({
+  children,
+  delay,
+  slideOut,
+  rowDirection = false,
+}: Props) {
   const { width } = useWindowSize();
   return (
     <CenteredMotionDiv
@@ -36,6 +42,7 @@ export default function WithSlideOut({ children, delay, slideOut }: Props) {
         ease: 'easeOut',
         delay: delay ? delay : 0.5,
       }}
+      rowDirection={rowDirection}
     >
       {children}
     </CenteredMotionDiv>

@@ -8,6 +8,7 @@ import { Button } from 'components';
 import { PokemonDetails } from 'components';
 import { Loader } from 'components';
 import WithSlideIn from '@componentsanimations/WithSlideIn';
+import WithSlideOut from '@componentsanimations/WithSlideOut';
 
 export default function Pokemon({ pokemons }: ComponentProps) {
   const router = useRouter();
@@ -15,8 +16,8 @@ export default function Pokemon({ pokemons }: ComponentProps) {
   const [pokemon, setPokemon] = useState<PokemonI>();
   const [isLoading, setIsLoading] = useState(false);
   const [isError, setIsError] = useState(false);
+  const [animateOut, setAnimateOut] = useState(false);
 
-  // TODO: add loading animation when no data
   useEffect(() => {
     async function doFetch() {
       setIsLoading(true);
@@ -42,17 +43,24 @@ export default function Pokemon({ pokemons }: ComponentProps) {
     }
   }, [name, pokemons]);
 
+  function handleClick() {
+    setAnimateOut(true);
+    setTimeout(() => {
+      router.push('/');
+    }, 700);
+  }
+
   return (
     <WithSlideIn>
-      <Column margin='0 20vw 0 20vw'>
-        <Button onClick={() => router.push('/')}>
-          &larr; Back to all Pokemons
-        </Button>
-        {isError && <p>API Request failed</p>}
-        {pokemon && <PokemonDetails pokemon={pokemon} />}
-        {!pokemon && !isLoading && <p>Not a Pokemin -.-</p>}
-        {isLoading && <Loader />}
-      </Column>
+      <WithSlideOut slideOut={animateOut} rowDirection>
+        <Column margin='0 20vw 0 20vw'>
+          <Button onClick={handleClick}>&larr; Back to all Pokemons</Button>
+          {isError && <p>API Request failed</p>}
+          {pokemon && <PokemonDetails pokemon={pokemon} />}
+          {!pokemon && !isLoading && <p>Not a Pokemin -.-</p>}
+          {isLoading && <Loader />}
+        </Column>
+      </WithSlideOut>
     </WithSlideIn>
   );
 }
