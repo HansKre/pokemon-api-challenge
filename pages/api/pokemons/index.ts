@@ -31,7 +31,6 @@ export default async function handler(
   req: NextApiRequest,
   res: NextApiResponse<APIResponsePokemonsI>
 ) {
-  // TODO naming convention for path parameters
   console.log('POKEMON API CALLED');
   if (req.method === 'GET') {
     const { page: pageParam } = req.query;
