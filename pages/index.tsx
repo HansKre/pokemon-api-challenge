@@ -1,14 +1,14 @@
 import { useState, useEffect, useCallback } from 'react';
-import { APIResponsePokemonsI } from '../types';
-import { LIMIT, POKEMONS_API } from '../constants';
-import { ComponentProps } from './_app';
-import PokemonCard from '../components/pokemon-card/PokemonCard';
 import styled from 'styled-components';
-import Column from '../components/column/Column';
-import Loader from '../components/loader/Loader';
-import WithSlideOutAnimation from '../components/animations/WithSlideOutAnimation';
-import WithSlideInAnimation from '../components/animations/WithSlideInAnimation';
-import WithFadeInAnimation from '../components/animations/WithFadeInAnimation';
+import { APIResponsePokemonsI } from 'types';
+import { LIMIT, POKEMONS_API } from '@config/constants';
+import { ComponentProps } from '@pages/_app';
+import { PokemonCard } from 'components';
+import { Column } from 'components';
+import { Loader } from 'components';
+import WithSlideOutAnimation from '@animations/WithSlideOutAnimation';
+import WithSlideInAnimation from '@animations/WithSlideInAnimation';
+import WithFadeInAnimation from '@animations/WithFadeInAnimation';
 
 const Pagination = styled.div`
   margin: 50px auto 0 auto;

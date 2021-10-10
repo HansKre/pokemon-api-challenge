@@ -1,7 +1,7 @@
 import type { NextApiRequest, NextApiResponse } from 'next';
-import { PokemonI } from '../../../types';
 const Pokedex = require('pokedex-promise-v2');
-import { project } from './index';
+import { PokemonI } from 'types';
+import { project } from '@api/pokemons';
 
 export default async function handler(
   req: NextApiRequest,

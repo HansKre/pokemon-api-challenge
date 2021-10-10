@@ -1,7 +1,7 @@
 import styled, { css } from 'styled-components';
 import { bounceInReduced } from '../../styles/mainTheme';
 
-export const Button = styled.div`
+const Button = styled.div`
   font-weight: bold;
   width: 100%;
   border-radius: 5px;
@@ -29,3 +29,5 @@ export const Button = styled.div`
     transform: scale(1.05);
   }
 `;
+
+export default Button;

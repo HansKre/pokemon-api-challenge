@@ -1,8 +1,8 @@
-import '../styles/globals.css';
+import 'styles/globals.css';
 import type { AppProps } from 'next/app';
-import Layout from '../components/layout/Layout';
+import { Layout } from 'components';
 import { Dispatch, SetStateAction, useState } from 'react';
-import { PokemonI } from '../types';
+import { PokemonI } from 'types';
 
 export interface ComponentProps {
   pokemons: PokemonI[] | undefined;

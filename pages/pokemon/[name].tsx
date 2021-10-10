@@ -1,13 +1,13 @@
 import { useRouter } from 'next/router';
-import { ComponentProps } from '../_app';
-import { PokemonI } from '../../types';
 import { useEffect, useState } from 'react';
-import { POKEMON_API } from '../../constants';
-import Column from '../../components/column/Column';
-import WithSlideInAnimation from '../../components/animations/WithSlideInAnimation';
-import { Button } from '../../components/button/Button';
-import PokemonDetails from '../../components/pokemon-card/PokemonDetails';
-import Loader from '../../components/loader/Loader';
+import { ComponentProps } from '@pages/_app';
+import { PokemonI } from 'types';
+import { POKEMON_API } from '@config/constants';
+import { Column } from 'components';
+import { Button } from 'components';
+import { PokemonDetails } from 'components';
+import { Loader } from 'components';
+import WithSlideInAnimation from '@animations/WithSlideInAnimation';
 
 export default function Pokemon({ pokemons }: ComponentProps) {
   const router = useRouter();

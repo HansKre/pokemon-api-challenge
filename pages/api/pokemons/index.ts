@@ -1,7 +1,7 @@
 import type { NextApiRequest, NextApiResponse } from 'next';
-import { APIResponsePokemonsI, PokemonI } from '../../../types';
 const Pokedex = require('pokedex-promise-v2');
-import { LIMIT } from '../../../constants';
+import { APIResponsePokemonsI, PokemonI } from 'types';
+import { LIMIT } from '@config/constants';
 
 export function project(result: any): PokemonI | null {
   if (
