@@ -92,6 +92,7 @@ Used if user opens details page directly.
 - `react context`: similar to above approach although with more code
 - `getServerSideProps` seems to target a particular page, like the main page. Did not get it to work with `_app.tsx` to make data available to multiple pages
 - `getInitialProps`: Not recommended. 'If you're using Next.js 9.3 or newer, we recommend that you use `getStaticProps` or `getServerSideProps` instead of `getInitialProps`.'
+- do not use `Next.js`'s `dynamic routing` and implement pokemon-details page as part of the main page as `SPA`
 
 ## Hosting
 
