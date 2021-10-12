@@ -1,5 +1,5 @@
 /* eslint-disable @next/next/no-img-element */
-import { PokemonI } from '../../types';
+import { PokemonDetails } from '../../types';
 import Card from './Card';
 import Title from './Title';
 import Description from './Description';
@@ -7,7 +7,7 @@ import { MouseEventHandler, useState } from 'react';
 import { useRouter } from 'next/router';
 
 interface Props {
-  pokemon: PokemonI;
+  pokemon: PokemonDetails;
   onClick?: MouseEventHandler<HTMLAnchorElement> | undefined;
 }
 

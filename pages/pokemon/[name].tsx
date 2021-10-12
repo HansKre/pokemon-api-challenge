@@ -1,7 +1,7 @@
 import { useRouter } from 'next/router';
 import { useEffect, useState } from 'react';
 import { ComponentProps } from '@pages/_app';
-import { PokemonI } from 'types';
+import { PokemonDetails as PokemonDetailsType } from 'types';
 import { POKEMON_API } from '@config/constants';
 import { Column } from 'components';
 import { Button } from 'components';
@@ -13,7 +13,7 @@ import WithSlideOut from '@componentsanimations/WithSlideOut';
 export default function Pokemon({ pokemons }: ComponentProps) {
   const router = useRouter();
   const name = router.query.name as string;
-  const [pokemon, setPokemon] = useState<PokemonI>();
+  const [pokemon, setPokemon] = useState<PokemonDetailsType>();
   const [isLoading, setIsLoading] = useState(false);
   const [isError, setIsError] = useState(false);
   const [animateOut, setAnimateOut] = useState(false);
@@ -21,7 +21,7 @@ export default function Pokemon({ pokemons }: ComponentProps) {
   useEffect(() => {
     async function doFetch() {
       setIsLoading(true);
-      const pokemon: PokemonI = await fetch(`${POKEMON_API}${name}`)
+      const pokemon: PokemonDetailsType = await fetch(`${POKEMON_API}${name}`)
         .then((res) => res.json())
         .catch((reason) => {
           console.log(reason);

@@ -1,11 +1,11 @@
 import type { NextApiRequest, NextApiResponse } from 'next';
 const Pokedex = require('pokedex-promise-v2');
-import { PokemonI } from 'types';
+import { PokemonDetails } from 'types';
 import { project } from '@api/pokemons';
 
 export default async function handler(
   req: NextApiRequest,
-  res: NextApiResponse<PokemonI | null>
+  res: NextApiResponse<PokemonDetails | null>
 ) {
   console.log('NAME API CALLED');
   if (req.method === 'GET') {

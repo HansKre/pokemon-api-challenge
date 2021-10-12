@@ -1,10 +1,14 @@
 /* eslint-disable @next/next/no-img-element */
-import { PokemonI } from '../../types';
+import { PokemonDetails as PokemonDetailsType } from '../../types';
 import Title from './Title';
 import Description from './Description';
 import Column from '../column/Column';
 
-export default function PokemonDetails({ pokemon }: { pokemon: PokemonI }) {
+export default function PokemonDetails({
+  pokemon,
+}: {
+  pokemon: PokemonDetailsType;
+}) {
   return (
     <Column margin='60px'>
       <Title>{pokemon.name}</Title>

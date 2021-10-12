@@ -1,4 +1,4 @@
-export interface PokemonI {
+export interface PokemonDetails {
   name: string;
   img: string;
   species: string;
@@ -35,7 +35,7 @@ export interface Type {
   type: StatClass;
 }
 
-export interface APIResponsePokemonsI {
-  results: PokemonI[] | [];
+export interface OutPokemonsAPI {
+  results: PokemonDetails[] | [];
   count: number;
 }

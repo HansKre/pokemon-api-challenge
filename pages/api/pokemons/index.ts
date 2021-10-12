@@ -1,9 +1,9 @@
 import type { NextApiRequest, NextApiResponse } from 'next';
 const Pokedex = require('pokedex-promise-v2');
-import { APIResponsePokemonsI, PokemonI } from 'types';
+import { OutPokemonsAPI, PokemonDetails } from 'types';
 import { LIMIT } from '@config/constants';
 
-export function project(result: any): PokemonI | null {
+export function project(result: any): PokemonDetails | null {
   if (
     result.hasOwnProperty('name') &&
     result.hasOwnProperty('sprites') &&
@@ -13,7 +13,7 @@ export function project(result: any): PokemonI | null {
     result.hasOwnProperty('weight') &&
     result.hasOwnProperty('moves')
   ) {
-    const pokemon: PokemonI = {
+    const pokemon: PokemonDetails = {
       name: result.name,
       img: result.sprites.front_default,
       species: result.species.name,
@@ -29,7 +29,7 @@ export function project(result: any): PokemonI | null {
 
 export default async function handler(
   req: NextApiRequest,
-  res: NextApiResponse<APIResponsePokemonsI>
+  res: NextApiResponse<OutPokemonsAPI>
 ) {
   console.log('POKEMON API CALLED');
   if (req.method === 'GET') {
@@ -50,7 +50,7 @@ export default async function handler(
         response.hasOwnProperty('results') &&
         response.hasOwnProperty('count')
       ) {
-        const { results: pokemons }: { results: PokemonI[] } = response;
+        const { results: pokemons }: { results: PokemonDetails[] } = response;
         const promises = pokemons.map((pokemon) =>
           P.getPokemonByName(pokemon.name)
         );
@@ -62,7 +62,7 @@ export default async function handler(
           );
         const pokemonsProjected = results
           .map((result) => project(result))
-          .filter((pokemon) => pokemon !== null) as PokemonI[] | [];
+          .filter((pokemon) => pokemon !== null) as PokemonDetails[] | [];
         res
           .status(200)
           .json({ results: pokemonsProjected, count: response.count });

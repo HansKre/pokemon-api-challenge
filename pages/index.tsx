@@ -1,6 +1,6 @@
 import { useState, useEffect, useCallback } from 'react';
 import styled from 'styled-components';
-import { APIResponsePokemonsI } from 'types';
+import { OutPokemonsAPI } from 'types';
 import { LIMIT, POKEMONS_API } from '@config/constants';
 import { ComponentProps } from '@pages/_app';
 import { PokemonCard } from 'components';
@@ -49,17 +49,27 @@ export default function Home({
   const doFetch = useCallback(async () => {
     setIsLoading(true);
     setIsError(false);
-    const { results, count }: APIResponsePokemonsI = await fetch(
-      `${POKEMONS_API}${page}`
-    )
-      .then((res) => res.json())
+    const response = await fetch(`${POKEMONS_API}${page}`)
+      .then((res) => {
+        if (res.status === 200) {
+          return res.json();
+        } else {
+          setIsError(true);
+          setPokemons(undefined);
+          return null;
+        }
+      })
       .catch((reason) => {
         console.log(reason);
         setIsError(true);
+        setPokemons(undefined);
       });
-    if (results) {
-      setPokemons(results);
-      setMaxPages(Math.ceil(count / LIMIT));
+    if (response) {
+      const { results, count }: OutPokemonsAPI = response;
+      if (results) {
+        setPokemons(results);
+        setMaxPages(Math.ceil(count / LIMIT));
+      }
     }
     setIsLoading(false);
   }, [page, setMaxPages, setPokemons]);
