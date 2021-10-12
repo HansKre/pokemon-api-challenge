@@ -14,7 +14,12 @@ export default async function handler(
       const P = new Pokedex();
       try {
         const result = await P.getPokemonByName(name);
-        res.status(200).json(project(result));
+        const projectedAndValidated = project(result);
+        if (projectedAndValidated) {
+          res.status(200).json(projectedAndValidated);
+        } else {
+          res.status(500).end();
+        }
       } catch (err: any) {
         console.log(err);
         var numberPattern = /\d+/g;

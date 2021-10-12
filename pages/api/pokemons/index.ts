@@ -2,17 +2,17 @@ import type { NextApiRequest, NextApiResponse } from 'next';
 const Pokedex = require('pokedex-promise-v2');
 import { OutPokemonsAPI, PokemonDetails } from 'types';
 import { LIMIT } from '@config/constants';
+import {
+  InPokemonsAPI,
+  InPokemonsAPISchema,
+} from '@config/types/in-pokemons-api';
+import { InPokemonDetailsAPISchema } from '@config/types/in-pokemon-details-api';
 
 export function project(result: any): PokemonDetails | null {
-  if (
-    result.hasOwnProperty('name') &&
-    result.hasOwnProperty('sprites') &&
-    result.hasOwnProperty('species') &&
-    result.hasOwnProperty('stats') &&
-    result.hasOwnProperty('types') &&
-    result.hasOwnProperty('weight') &&
-    result.hasOwnProperty('moves')
-  ) {
+  const { error } = InPokemonDetailsAPISchema.validate(result);
+  if (!error) {
+    // TODO: use joi-to-typescript package
+    // const validatedResult:InPokemonDetailsAPI = result;
     const pokemon: PokemonDetails = {
       name: result.name,
       img: result.sprites.front_default,
@@ -24,6 +24,7 @@ export function project(result: any): PokemonDetails | null {
     };
     return pokemon;
   }
+  console.log(error);
   return null;
 }
 
@@ -46,11 +47,9 @@ export default async function handler(
         offset: page * LIMIT,
       };
       const response = await P.getPokemonsList(interval);
-      if (
-        response.hasOwnProperty('results') &&
-        response.hasOwnProperty('count')
-      ) {
-        const { results: pokemons }: { results: PokemonDetails[] } = response;
+      const { error } = InPokemonsAPISchema.validate(response);
+      if (!error) {
+        const { results: pokemons } = response as InPokemonsAPI;
         const promises = pokemons.map((pokemon) =>
           P.getPokemonByName(pokemon.name)
         );
@@ -67,6 +66,7 @@ export default async function handler(
           .status(200)
           .json({ results: pokemonsProjected, count: response.count });
       } else {
+        console.log(error);
         // Server Error
         res.status(500).end();
       }

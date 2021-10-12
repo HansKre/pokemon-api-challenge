@@ -22,13 +22,22 @@ export default function Pokemon({ pokemons }: ComponentProps) {
     async function doFetch() {
       setIsLoading(true);
       const pokemon: PokemonDetailsType = await fetch(`${POKEMON_API}${name}`)
-        .then((res) => res.json())
+        .then((res) => {
+          if (res.status === 200) {
+            return res.json();
+          } else {
+            setIsError(true);
+            setPokemon(undefined);
+            return null;
+          }
+        })
         .catch((reason) => {
           console.log(reason);
+          setPokemon(undefined);
           setIsError(true);
         });
-      setIsError(false);
       if (pokemon) {
+        setIsError(false);
         setPokemon(pokemon);
       }
       setIsLoading(false);
