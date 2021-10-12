@@ -12,6 +12,7 @@ type Props = {
 
 const CenteredMotionDiv = styled(motion.div)<{ rowDirection: boolean }>`
   display: flex;
+  flex: 1;
   flex-direction: ${({ rowDirection }) => (rowDirection ? 'row' : 'column')};
 `;
 

@@ -10,6 +10,7 @@ type Props = {
 
 const CenteredMotionDiv = styled(motion.div)`
   display: flex;
+  flex: 1;
 `;
 
 export default function WithSlideIn({ children, delay, fromLeft }: Props) {
