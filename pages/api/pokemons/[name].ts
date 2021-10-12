@@ -12,8 +12,18 @@ export default async function handler(
     const { name } = req.query;
     if (name && !Array.isArray(name)) {
       const P = new Pokedex();
-      const result = await P.getPokemonByName(name);
-      res.status(200).json(project(result));
+      try {
+        const result = await P.getPokemonByName(name);
+        res.status(200).json(project(result));
+      } catch (err: any) {
+        console.log(err);
+        var numberPattern = /\d+/g;
+        let status;
+        if (err instanceof Error) {
+          status = parseInt(err.message.match(numberPattern)?.[0] || '500');
+        }
+        res.status(status || 500).end();
+      }
     } else {
       // Server Error
       res.status(500).end();
