@@ -87,7 +87,7 @@ export default function Home({
   return (
     <Column>
       <WithSlideIn fromLeft>
-        <WithSlideOut slideOut={animateOut}>
+        <WithSlideOut slideOut={animateOut} toRight>
           {!isLoading && (
             <Pagination>
               <Label>Go to page:</Label>

@@ -51,8 +51,8 @@ export default function Pokemon({ pokemons }: ComponentProps) {
   }
 
   return (
-    <WithSlideIn>
-      <WithSlideOut slideOut={animateOut} rowDirection>
+    <WithSlideIn fromLeft>
+      <WithSlideOut slideOut={animateOut} rowDirection toRight>
         <Column margin='0 20vw 0 20vw'>
           <Button onClick={handleClick}>&larr; Back to all Pokemons</Button>
           {isError && <p>API Request failed</p>}

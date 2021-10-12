@@ -8,6 +8,7 @@ type Props = {
   delay?: number;
   slideOut: boolean;
   rowDirection?: boolean;
+  toRight?: boolean;
 };
 
 const CenteredMotionDiv = styled(motion.div)<{ rowDirection: boolean }>`
@@ -16,12 +17,12 @@ const CenteredMotionDiv = styled(motion.div)<{ rowDirection: boolean }>`
   flex-direction: ${({ rowDirection }) => (rowDirection ? 'row' : 'column')};
 `;
 
-const variants = (width: number): Variants => {
+const variants = (width: number, toRight?: boolean): Variants => {
   return {
     initial: { opacity: 1, x: 0 },
     slideOut: {
       opacity: [null, 0],
-      x: [null, -width],
+      x: toRight ? [null, width] : [null, -width],
     },
   };
 };
@@ -31,11 +32,12 @@ export default function WithSlideOut({
   delay,
   slideOut,
   rowDirection = false,
+  toRight,
 }: Props) {
   const { width } = useWindowSize();
   return (
     <CenteredMotionDiv
-      variants={variants(width)}
+      variants={variants(width, toRight)}
       animate={slideOut ? 'slideOut' : 'initial'}
       transition={{
         duration: 0.5,
