@@ -2,7 +2,7 @@ import { ReactNode } from 'react';
 import styled, { ThemeProvider } from 'styled-components';
 import Head from 'next/head';
 import WithFadeIn from '../animations/WithFadeIn';
-import useWindowResize from 'webdev-essentials/dist/hooks/useWindowResize';
+import { useWindowResize } from 'webdev-essentials/dist/hooks/useWindowResize';
 import mainTheme from '../../styles/mainTheme';
 
 const LayoutContainer = styled.div<{ innerHeight: number }>`

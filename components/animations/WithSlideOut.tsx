@@ -1,6 +1,6 @@
 import { ReactNode } from 'react';
 import { motion, Variants } from 'framer-motion';
-import useWindowSize from 'webdev-essentials/dist/hooks/useWindowResize';
+import { useWindowResize } from 'webdev-essentials/dist/hooks/useWindowResize';
 import styled from 'styled-components';
 
 type Props = {
@@ -34,7 +34,7 @@ export default function WithSlideOut({
   rowDirection = false,
   toRight,
 }: Props) {
-  const { width } = useWindowSize();
+  const { width } = useWindowResize();
   return (
     <CenteredMotionDiv
       variants={variants(width, toRight)}
