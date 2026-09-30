@@ -3,29 +3,30 @@
   "version": "0.1.0",
   "private": true,
   "scripts": {
-    "dev": "NODE_OPTIONS='--openssl-legacy-provider' next dev",
-    "build": "NODE_OPTIONS='--openssl-legacy-provider' next build",
-    "start": "NODE_OPTIONS='--openssl-legacy-provider' next start",
-    "lint": "next lint"
+    "dev": "next dev",
+    "build": "next build",
+    "start": "next start",
+    "lint": "eslint ."
   },
   "dependencies": {
     "@types/pokedex-promise-v2": "github:mudkipme/pokeapi-v2-typescript",
-    "framer-motion": "^4.1.17",
+    "framer-motion": "^11.18.2",
     "joi": "^17.13.8",
-    "next": "11.1.4",
+    "next": "16.3.8",
     "pokedex-promise-v2": "^4.2.3",
-    "react": "17.0.2",
-    "react-dom": "17.0.2",
-    "react-spinners": "^0.11.0",
-    "styled-components": "^5.3.11",
-    "webdev-essentials": "^1.2.0"
+    "react": "^18.3.1",
+    "react-dom": "^18.3.1",
+    "react-spinners": "^0.14.1",
+    "styled-components": "^6.1.15",
+    "webdev-essentials": "^2.0.0"
   },
   "devDependencies": {
-    "@types/react": "17.0.21",
-    "@types/styled-components": "^5.1.15",
-    "eslint": "7.32.0",
-    "eslint-config-next": "11.1.4",
-    "typescript": "4.4.4"
+    "@types/node": "^22.10.10",
+    "@types/react": "^18.3.18",
+    "@types/react-dom": "^18.3.5",
+    "eslint": "^9.20.0",
+    "eslint-config-next": "16.3.8",
+    "typescript": "^5.7.3"
   },
   "repository": {
     "url": "git@github.com:HansKre/pokemon-api-challenge.git"

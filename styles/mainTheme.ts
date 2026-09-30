@@ -8,7 +8,14 @@ const mainTheme = {
   },
   primaryColor: '#db9137',
   secondaryColor: 'grey',
+  backgroundColor: '#fff',
 };
+
+type CustomTheme = typeof mainTheme;
+
+declare module 'styled-components' {
+  export interface DefaultTheme extends CustomTheme {}
+}
 
 export const bounceIn = keyframes` 
   0% {
