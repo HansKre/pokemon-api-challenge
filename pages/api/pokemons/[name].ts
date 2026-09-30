@@ -1,5 +1,5 @@
 import type { NextApiRequest, NextApiResponse } from 'next';
-const Pokedex = require('pokedex-promise-v2');
+import Pokedex from 'pokedex-promise-v2';
 import { PokemonDetails } from 'types';
 import { project } from '@api/pokemons';
 

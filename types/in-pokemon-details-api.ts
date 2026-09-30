@@ -18,7 +18,7 @@ export interface StatClass {
 const StatClassSchema = Joi.object({
   name: Joi.string().required(),
   url: Joi.string().required(),
-});
+}).unknown(true);
 
 export interface Stat {
   base_stat: number;
@@ -30,7 +30,7 @@ const StatSchema = Joi.object({
   base_stat: Joi.number().required(),
   effort: Joi.number().required(),
   stat: StatClassSchema,
-});
+}).unknown(true);
 
 export interface Type {
   slot: number;
@@ -40,7 +40,7 @@ export interface Type {
 const TypeSchema = Joi.object({
   slot: Joi.number().required(),
   type: StatClassSchema,
-});
+}).unknown(true);
 
 export interface VersionGroupDetail {
   level_learned_at: number;
@@ -52,7 +52,7 @@ const VersionGroupDetailSchema = Joi.object({
   level_learned_at: Joi.number().required(),
   move_learn_method: StatClassSchema,
   version_group: StatClassSchema,
-});
+}).unknown(true);
 
 export interface MoveElement {
   move: StatClass;
@@ -62,7 +62,7 @@ export interface MoveElement {
 const MoveElementSchema = Joi.object({
   move: StatClassSchema,
   version_group_details: Joi.array().required().items(VersionGroupDetailSchema),
-});
+}).unknown(true);
 
 export const PokemonSchema = Joi.object({
   name: Joi.string().required(),
