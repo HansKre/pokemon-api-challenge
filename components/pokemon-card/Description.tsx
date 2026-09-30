@@ -1,6 +1,8 @@
 import styled, { css } from 'styled-components';
 
-const Description = styled.p<{ bold?: boolean }>`
+const Description = styled.p.withConfig({
+  shouldForwardProp: (prop) => prop !== 'bold',
+})<{ bold?: boolean }>`
   margin: 0;
   font-size: ${(props) => props.theme.typography.p};
   line-height: 1.5;

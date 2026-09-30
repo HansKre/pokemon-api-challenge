@@ -11,10 +11,10 @@ type Props = {
   toRight?: boolean;
 };
 
-const CenteredMotionDiv = styled(motion.div)<{ rowDirection: boolean }>`
+const CenteredMotionDiv = styled(motion.div)<{ $rowDirection: boolean }>`
   display: flex;
   flex: 1;
-  flex-direction: ${({ rowDirection }) => (rowDirection ? 'row' : 'column')};
+  flex-direction: ${({ $rowDirection }) => ($rowDirection ? 'row' : 'column')};
 `;
 
 const variants = (width: number, toRight?: boolean): Variants => {
@@ -45,7 +45,7 @@ export default function WithSlideOut({
         ease: 'easeOut',
         delay: delay ? delay : 0.5,
       }}
-      rowDirection={rowDirection}
+      $rowDirection={rowDirection}
     >
       {children}
     </CenteredMotionDiv>

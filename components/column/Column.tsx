@@ -1,6 +1,8 @@
 import styled from 'styled-components';
 
-const Column = styled.div<{ margin?: string }>`
+const Column = styled.div.withConfig({
+  shouldForwardProp: (prop) => prop !== 'margin',
+})<{ margin?: string }>`
   display: flex;
   flex-direction: column;
   width: 100%;

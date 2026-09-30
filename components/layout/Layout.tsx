@@ -5,11 +5,11 @@ import WithFadeIn from '../animations/WithFadeIn';
 import { useWindowResize } from 'webdev-essentials/dist/hooks/useWindowResize';
 import mainTheme from '../../styles/mainTheme';
 
-const LayoutContainer = styled.div<{ innerHeight: number }>`
+const LayoutContainer = styled.div<{ $innerHeight: number }>`
   /* background-color: ${(props) => props.theme.backgroundColor}; */
-  min-height: ${(props) => `calc(${props.innerHeight}px + 0px)`};
-  height: ${(props) => `calc(${props.innerHeight}px + 0px)`};
-  max-height: ${(props) => `calc(${props.innerHeight}px + 0px)`};
+  min-height: ${(props) => `calc(${props.$innerHeight}px + 0px)`};
+  height: ${(props) => `calc(${props.$innerHeight}px + 0px)`};
+  max-height: ${(props) => `calc(${props.$innerHeight}px + 0px)`};
   min-width: 100vw;
   width: 100vw;
   max-width: 100vw;
@@ -40,7 +40,7 @@ export default function Layout({ children }: { children: ReactNode }) {
   return (
     <ThemeProvider theme={mainTheme}>
       <WithFadeIn>
-        <LayoutContainer innerHeight={innerHeight}>
+        <LayoutContainer $innerHeight={innerHeight}>
           <Head>
             <title>Pokemon API Challenge</title>
             <meta name='description' content='Pokemon API Challenge' />
