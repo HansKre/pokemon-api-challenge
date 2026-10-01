@@ -22,7 +22,7 @@ const variants = (width: number, toRight?: boolean): Variants => {
     initial: { opacity: 1, x: 0 },
     slideOut: {
       opacity: [null, 0],
-      x: toRight ? [null, width] : [null, -width],
+      x: toRight ? [0, width] : [0, -width],
     },
   };
 };

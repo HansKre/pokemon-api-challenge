@@ -16,10 +16,10 @@ const CenteredMotionDiv = styled(motion.div)`
 export default function WithSlideIn({ children, delay, fromLeft }: Props) {
   return (
     <CenteredMotionDiv
-      initial={{ opacity: 0, x: `${fromLeft ? '-800px' : '800px'}` }}
+      initial={{ opacity: 0, x: fromLeft ? -800 : 800 }}
       animate={{
-        opacity: [null, 1],
-        x: fromLeft ? [null, 200, 0] : [null, -200, 0],
+        opacity: [0, 1, 1],
+        x: fromLeft ? [-800, 200, 0] : [800, -200, 0],
       }}
       transition={{
         duration: 0.5,
