@@ -21,6 +21,7 @@
     "webdev-essentials": "^2.0.0"
   },
   "devDependencies": {
+    "@netlify/plugin-nextjs": "^5.16.1",
     "@types/node": "^22.10.10",
     "@types/react": "^18.3.18",
     "@types/react-dom": "^18.3.5",
